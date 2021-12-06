@@ -104,7 +104,6 @@ OPLUS_FEATURE_SENSOR_FEEDBACK
 
 $(foreach myfeature,$(ALLOWED_MCROS),\
     $(if $(strip $($(myfeature))),\
-         $(warning make $(myfeature) to be a macro here) \
          $(eval KBUILD_CFLAGS += -D$(myfeature)) \
          $(eval KBUILD_CPPFLAGS += -D$(myfeature)) \
          $(eval CFLAGS_KERNEL += -D$(myfeature)) \
