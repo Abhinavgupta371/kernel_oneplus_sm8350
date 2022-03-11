@@ -1791,13 +1791,7 @@ static int __do_execve_file(int fd, struct filename *filename,
 	retval = PTR_ERR(file);
 	if (IS_ERR(file))
 		goto out_unmark;
-#ifdef CONFIG_OPLUS_KERNEL_SECURE_GUARD
-    retval = oplus_exec_block(file);
-	if (retval){
-		fput(file);
-		goto out_unmark;
-	}
-#endif /* CONFIG_OPLUS_KERNEL_SECURE_GUARD */
+
 	sched_exec();
 
 	bprm->file = file;
